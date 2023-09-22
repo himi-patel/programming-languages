@@ -1,0 +1,171 @@
+JOIN Query -> SELECT c.*,o.*,s.* FROM customer c join orders o on c.cnum=o.cnum join salesman s on o.snum=s.snum where not (s.city='bombay' or s.city='surat' and c.city='surat' or c.city='bombay' )
+
+
+1.) SELECT onum, amount, odate FROM orders
+
+2.) SELECT * FROM `customer` WHERE snum=1001
+
+3.) SELECT city , sname , snum , commission FROM `salesman` 
+
+4.) SELECT distinct snum from orders
+
+5.) SELECT * FROM `orders` WHERE amount >1000
+
+6.) SELECT sname , city FROM `salesman` WHERE city='london' and commission>10
+
+7.) SELECT * FROM `customer` WHERE not(rating <=100 or city='rome')
+
+8.) SELECT * FROM `orders` WHERE amount>1000 and not(snum=1006 or odate='1999-03-10')
+
+9.) SELECT * FROM `orders` WHERE odate ='1999-03-10' or odate ='1999-04-10' or odate ='1999-06-10'
+
+10.) SELECT * FROM `customer` WHERE cname like 'c%'
+
+11.) SELECT * FROM `customer` WHERE cname between 'a' and 'h'
+
+12.) SELECT * FROM `orders` WHERE amount=0 or amount='null'
+
+13.) SELECT max(amount) from orders where snum=1002 or snum =1007
+
+14.) SELECT avg(amount), sum(amount) from orders
+
+
+
+
+
+
+
+
+
+
+
+
+15.) SELECT count(snum) from orders
+
+16.) SELECT max(amount) , snum , odate from orders group by snum , odate
+
+17.) select min(amount),cnum from orders group by cnum
+
+18.) SELECT * FROM `customer` WHERE cname like 'g%' order by cname
+
+19.) SELECT concat("There are 'x' (", count(onum) , ") " ,  "Orders on 'y' (", odate ,")" ) from orders group by odate
+
+20.) SELECT onum , snum , amount , (amount*12)/100 "Amount of Commission" FROM `orders` 
+
+21.) SELECT snum FROM `orders` order by snum desc.  
+	or
+     SELECT * FROM `customer` order by rating desc  
+
+22.) SELECT c.cname , s.sname FROM customer c join salesman  s on c.snum=s.snum
+
+23.) SELECT o.* , c.cname , s.sname from orders o join customer c on o.cnum=c.cnum join salesman s on c.snum=s.snum
+
+24.)  
+
+25.)  SELECT c.* , s.commission from customer c join salesman s on c.snum=s.snum where s.commission>12
+	
+26.)  select c.cname , c1.cname from customer c join customer c1 on c.rating=c1.rating and c.cnum > c1.cnum 
+
+27.)  select * from customer where city in(select city from salesman where sname='niraj')
+
+28.)  select s.sname,s.city ,s2.sname , s2.city from salesman s join salesman s2 where s.city = s2.city and s.snum > s2.snum
+
+29.)  SELECT cname,city from customer where rating in(select rating from customer where cname='hardik')
+
+30.)  SELECT * FROM `orders` WHERE snum in (select snum from salesman where sname='miti')
+
+31.)  SELECT * FROM orders where snum in(select snum from customer where cname='hardik')
+
+32.)  select * from orders where amount > (SELECT avg(amount) FROM `orders` WHERE odate='1999-04-10')
+
+33.)  SELECT count(cnum) FROM customer where rating > (select avg(rating) from customer where city='surat')
+
+34.)  select cname , cnum from customer where rating in(select max(rating) from customer group by city)
+
+35.)  SELECT * FROM `customer` WHERE rating > any(select rating from customer where city='rome')
+
+36.)
+
+37.)  SELECT * FROM `customer` WHERE not (rating = any (select rating from customer where city='surat'))
+
+38.)  SELECT cname , city ,concat(rating," ","High Rating " )FROM `customer` WHERE rating >=200 union SELECT cname , city ,concat(rating," ","Low Rating " )FROM `customer` WHERE rating <=200
+
+39.)  insertinto salesman (snum,sname,commission) values (1008,'rakesh',14)
+
+40.)  insert into customer (city,cname,cnum) values ('london','pratik',2008)
+
+41.)  create table londonstaff as select * from salesman
+
+42.)  insert into londonstaff(snum,sname,city,commission)select * from salesman where city='london';
+
+43.)  create table day_total as select odate , sum(amount) from orders group by odate
+
+44.)  delete from orders where cnum in(select cnum from customer where cname='chandu')
+
+45.)  update customer set rating = rating+100 where city='rome'
+
+46.)  update salesman set commission=commission*2 where city='london'
+
+47.)  delete from salesman where snum in (select snum from orders where amount in(select min(amount) from orders ))
+
+      or
+      delete from salesman where snum in (select snum from orders where amount in(select min(amount) from orders group by odate ))
+
+48.)  delete from customer where not (cnum in  (select cnum from orders where odate in (select max(odate)from orders ) ) )
+
+49.) alter table orders add item_name varchar(20)
+
+50.)
+
+51.) create view Big_order as select * from orders where amount >4000
+
+52.) create view High_rating as select * from customer where rating in (select max(rating) from customer)
+
+53.) create view count_salesman as select count(snum),city from salesman group by city 
+
+54.) create view avg_total as select s.sname , o.snum , avg(amount), count(onum) from orders o join salesman s on o.snum=s.snum group by s.sname , o.snum
+
+55.) create view show_name as select o.onum , o.amount, c.cname , s.sname from orders o join customer c join salesman s on o.cnum=c.cnum and s.snum=o.snum
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
