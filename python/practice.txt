@@ -1,0 +1,81 @@
+1️⃣ What will be the output of this code?
+
+x = 5
+y = "5"
+print(x + int(y))
+ output=10
+
+2️⃣ How do you check the data type of a variable in Python?
+just like print(type(x))
+
+3️⃣ What is the difference between = and ==?
+= is used to assign a value and == is used to comapre values
+
+4️⃣ How do you take user input in Python and convert it into an integer?
+name=int(input("enter number="))
+
+
+5️⃣ What are mutable and immutable data types in Python? Give examples.
+
+Mutable (Can be changed after creation): list, set, dict
+
+Immutable (Cannot be changed after creation): int, float, complex, bool, string, tuple, bytes
+
+🚀 Next Challenge: Intermediate Questions
+
+Now, let's step up! Answer these:
+
+1️⃣ What will be the output of this code?
+
+python
+Copy
+Edit
+a = "5"
+b = 2
+print(a * b)
+output:error# wrong Answer
+Explanation: The * operator repeats the string. Since "5" * 2 means "5" + "5", the output is "55".
+
+2️⃣ What is the difference between .append() and .extend() in lists?
+append join the value 
+extend add values
+
+.append(x): Adds a single element as-is to the list.
+
+.extend(iterable): Adds elements from an iterable (list, tuple, set) to the list.
+
+lst = [1, 2, 3]
+lst.append([4, 5])  # Appends the whole list as a single element
+print(lst)  # Output: [1, 2, 3, [4, 5]]
+
+lst = [1, 2, 3]
+lst.extend([4, 5])  # Adds each element individually
+print(lst)  # Output: [1, 2, 3, 4, 5]
+
+
+
+3️⃣ What does range(5, 10, 2) return?
+it mean from 5 to 10 with  increment of 2
+
+4️⃣ How do you check if a key exists in a dictionary?
+ if key in dic:
+ print "key exists"
+
+  Correct Answer:
+
+is checks if two variables point to the same memory location (identity comparison).
+
+== checks if two variables have the same value (value comparison).
+
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)  # True (Same values)
+print(a is b)  # False (Different objects in memory)
+
+
+
+5️⃣ What is the difference between is and == in Python?
+
+is mean exoct a particulary value in particular thing
+== mean comparison

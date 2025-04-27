@@ -1,1 +1,2 @@
-intermediate.greet("himi")
+
+    rev=(rev*10+b)
